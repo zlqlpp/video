@@ -12,7 +12,7 @@
     <body>
 	<div class="table-responsive">
 	 	<video width="800" height="600" controls>
-		  	<source src="${video}" type="video/mp4">
+		  	<source src="v/${video}" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
 	</div>

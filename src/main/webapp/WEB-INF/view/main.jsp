@@ -19,7 +19,7 @@
 	</script>
 </head>
 <body>
-<form id="sf" action="goVideo" methon="post">
+<form id="sf" action="goVideo" method="post">
 <input id="video" name="video" type="hidden" ></input>
 </form>
 
