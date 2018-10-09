@@ -1,0 +1,7 @@
+com\dao\Page.class
+com\web\DemoAction.class
+com\dao\BaseDaoImpl$1.class
+com\dao\BaseDaoImpl.class
+com\dao\SQLPageHandle.class
+com\dao\BaseDao.class
+com\dao\MysqlSQLPageHandleImpl.class
