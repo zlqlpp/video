@@ -2,8 +2,12 @@ package com.web;
 
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -71,7 +75,7 @@ public class vedioController {
     		
             List filesList = null;
             if(null == session.getAttribute("files") ||"".equals(session.getAttribute("files"))){
-            	filesList = getVideoList();
+            	filesList = getVideoList( );
                 session.setAttribute("files", filesList);
                 model.addAttribute("files", filesList);
             }else{
@@ -87,8 +91,19 @@ public class vedioController {
 
     private List<String> getVideoList(){
     	List<String> files = new ArrayList<String>();
-    	
-    	File file = new File("D:\\eclipse_workspace\\video\\WebContent");
+    	String path3 = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"resources/config.properties"; 
+        
+        Properties prop = new Properties();
+        //读取资源文件
+        try {
+			prop.load(new FileInputStream(path3));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+        String videoPath = prop.getProperty("videoPath");
+
+    	File file = new File(videoPath);
         File[] fileArray = file.listFiles();
 
         for (int i = 0; i < fileArray.length; i++) {

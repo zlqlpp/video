@@ -1,0 +1,7 @@
+cp -r  /cygdrive/d/eclipse_workspace/video/src/com  /cygdrive/d/github/video/src/main/java/
+
+
+cp -r  /cygdrive/d/eclipse_workspace/video/src/resources/*  /cygdrive/d/github/video/src/main/resources/
+ 
+cp -r  /cygdrive/d/eclipse_workspace/video/WebContent/*  /cygdrive/d/github/video/src/main/webapp/
+
