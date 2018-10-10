@@ -8,38 +8,29 @@
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-<form class="form-horizontal" role="form" action="login">
-	<div class="form-group">
-		<label for="firstname" class="col-sm-2 control-label">名字</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" id="userName" name="userName" 
-				   placeholder="请输入名字">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="lastname" class="col-sm-2 control-label">姓</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" id="passWord" name="passWord" 
-				   placeholder="请输入姓">
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-			<div class="checkbox">
-				<label>
-					<input type="checkbox"> 请记住我
-				</label>
-			</div>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default">登录</button>
-		</div>
-	</div>
+<body style="
+    margin-top: 20%;
+    margin-left: 20%;
+    font-size: 40;
+">
+ 
+<form role="form" action="login" >
+	 	账号<input type="text"   id="userName" name="userName"   style="
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-left: 2px;
+    margin-bottom: 10px;
+"><br/>
+		密码<input type="text"    id="passWord" name="passWord"  style="
+    padding-left: 1px;
+    margin-left: 2px;
+    margin-top: 10px;
+    border-top-width: 2px;
+"  ><br/>
+		<button type="submit"  style="
+    margin-top: 20px;
+">登录</button>
 </form>
-
+ 
 </body>
 </html>

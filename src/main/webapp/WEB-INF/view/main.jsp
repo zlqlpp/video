@@ -1,6 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
+<style type="text/css">
+.vn{
+	    margin-left: 25%;
+    font-family: serif;
+    font-size: 50px;
+}
+.t{
+    font-family: serif;
+    font-size: 40;
+    margin-top: 8%;
+    text-align: right;
+}
+</style>
 <head>
 	<meta charset="utf-8">
 	<title></title>
@@ -8,13 +21,19 @@
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
+	 
 		function video(v){
 			var f = $(v).attr('value');
-			 
-			if(confirm("当前总金币100，此次观看将使用2金币")){
-			 　　$('#video').val(f);
+			if(''!=$('#u').val()){
+				if(confirm("当前总金币100，此次观看将使用2金币")){
+					 　　$('#video').val(f);
+						$('#sf').submit();
+					}
+			}else{
+				$('#sf').attr("action","login");
 				$('#sf').submit();
 			}
+			
 		}
 	</script>
 </head>
@@ -24,25 +43,21 @@
 </form>
 
 <div>
-<form role="form">
-  <div class="form-group">
-    <label for="name">当前用户：${userName }</label>
-    <label for="name">金币总数:${gold }</label> 
+<form role="form" class="t">
+  <div class="form-group" style="margin-right: 10%;">
+    <label for="name">用户：${userName }</label>
+    <label for="name">金币:${gold }</label> 
+    <input id="u" type="hidden" value="${userName }"/>
   </div>
  </form>
 </div>
-<div class="table-responsive">
-	<table class="table">
-		<tbody>
+<hr>
 			<c:forEach items="${files}" var="f" varStatus="id">
-				<tr>
-					<td><a onclick="video(this);" value="${f}">${f}</a> </td>
-				</tr>
+				
+					<div class="vn"><a onclick="video(this);" value="${f}">${f}</a> </div>
+				
 			</c:forEach>
-			
-		</tbody>
-</table>
-</div>  	
+  	
 
 </body>
 </html>
