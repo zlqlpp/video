@@ -12,6 +12,7 @@ import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,11 +25,19 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016-03-27.
  */
 @Controller
+
 public class vedioController {
 
     @Autowired
     BaseDao bd;
-
+    
+    @RequestMapping("/test")
+    public String test(ModelMap model,HttpSession session){
+    	
+    	bd.insertAndSave();
+        
+        return  "main";
+    }
 
     @RequestMapping("/main")
     public String main(ModelMap model,HttpSession session){

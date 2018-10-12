@@ -5,28 +5,31 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Package Name: com.mos.base
- * User: grq
- * Date: 2016/3/24
- * Time: 16:06
- * Description:some des here!
- */
 @Repository
 public class BaseDaoImpl implements BaseDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Resource
+    
+    @Override
+    @Transactional
+    public boolean insertAndSave(){
+    	//jdbcTemplate.update("INSERT INTO test2 (n1, n2) VALUES (0, '1')");
+    	jdbcTemplate.update("INSERT INTO test2 (n1, n2) VALUES (0, 'xx')");
+    	jdbcTemplate.update("update test2 set n2='bb's where n1='0'");
+    	return true;
+    }
+    /*@Resource
     protected SQLPageHandle sQLPageHandle;
 
     public <T> List<T> find(String sql, Object[] params, Class<T> tClass) {
@@ -43,14 +46,14 @@ public class BaseDaoImpl implements BaseDao {
         return resultList;
     }
 
-    /**
+    *//**
      * 如果成功，返回影响记录数，如果失败，返回0 ，如果有异常，返回-1
      * @param sql
      * @param params
      * @param tClass
      * @param <T>
      * @return
-     */
+     *//*
     public <T> int addOrUpdateOrDelete(String sql, final Object[] params, Class<T> tClass) {
         int num = 0;
         try {
@@ -71,7 +74,7 @@ public class BaseDaoImpl implements BaseDao {
 
     }
 
-    /**
+    *//**
      * @param sql
      * @param parameters
      * @param pageNo
@@ -79,7 +82,7 @@ public class BaseDaoImpl implements BaseDao {
      * @param entity     jdbcTemplate.query由于需要返回自定义对象，调用此方法时候需要传入new BeanPropertyRowMapper<T>(entity)
      * @param <T>
      * @return
-     */
+     *//*
     public <T> Page<T> queryPagination(String sql, Object[] parameters, int pageNo, int pageSize, Class<T> entity) {
         // 将SQL语句进行分页处理
         String newSql = sQLPageHandle.handlerPagingSQL(sql, pageNo, pageSize);
@@ -98,14 +101,14 @@ public class BaseDaoImpl implements BaseDao {
         return page;
     }
 
-    /**
+    *//**
      * @param sql
      * @param args
      * @param classT 注意该参数，jdbcTemplate.queryForObject传入的不能是自定义的classType，
      *               如果是自定义的，需要经过new BeanPropertyRowMapper<T>(classT)转换，默认支持的只有比如String，int等类型
      * @param <T>
      * @return
-     */
+     *//*
     public <T> T findForObject(String sql, Object[] args, Class<T> classT) {
         if (sql == null || sql.length() <= 0) {
             return null;
@@ -149,5 +152,5 @@ public class BaseDaoImpl implements BaseDao {
             e.printStackTrace();
             return null;
         }
-    }
+    }*/
 }
