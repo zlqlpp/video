@@ -8,5 +8,7 @@ public interface BaseDao {
 
 	boolean insertAndSave();
 
+	List findUser(String userName, String passWd);
+
 
 }

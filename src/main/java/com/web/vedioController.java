@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dao.BaseDao;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -55,7 +56,30 @@ public class vedioController {
         
         return  "main";
     }
-    
+    @RequestMapping("/login")
+    public String login(ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession session){
+    	
+    	String userName = request.getParameter("userName");
+    	String passWord = request.getParameter("passWord");
+    	
+    	List resultList = null;
+    	if(null!=session.getAttribute("userName")&&"userName".equals(session.getAttribute("userName"))){
+    		return "main";
+    	}else{
+    		resultList = bd.findUser(userName,passWord);
+    		if(){}
+    		if(){
+    			session.setAttribute("userName", userName);
+        		session.setAttribute("gold", "-1");
+        		
+        		model.addAttribute("userName", userName);
+                model.addAttribute("gold", "-1");
+    		}else{
+    			request.getRequestDispatcher("main").forward(request, response);
+    		}
+    		 
+    	}
+    }
     @RequestMapping("/goVideo")
     public String goVideo(ModelMap model,HttpServletRequest request,HttpSession session){
     	
@@ -69,34 +93,8 @@ public class vedioController {
         return  "video";
     }
 
-    @RequestMapping("/login")
-    public String login(ModelMap model,HttpServletRequest request,HttpSession session){
-    	
-    	String userName = request.getParameter("userName");
-    	String passWord = request.getParameter("passWord");
-    	
-    	if("1".equals(userName)||"1".equals(passWord)){
-    		session.setAttribute("userName", userName);
-    		session.setAttribute("gold", "-1");
-    		
-            model.addAttribute("userName", userName);
-            model.addAttribute("gold", "-1");
-    		
-            List filesList = null;
-            if(null == session.getAttribute("files") ||"".equals(session.getAttribute("files"))){
-            	filesList = getVideoList( );
-                session.setAttribute("files", filesList);
-                model.addAttribute("files", filesList);
-            }else{
-            	model.addAttribute("files", session.getAttribute("files"));
-            }
-            
-    		return  "main";
-    	}else{
-    		return "login";
-    	}
-    }
 
+//---------------------------------------工具方法-------------------------
 
     private List<String> getVideoList(){
     	List<String> files = new ArrayList<String>();
@@ -114,7 +112,6 @@ public class vedioController {
 
     	File file = new File(videoPath);
         File[] fileArray = file.listFiles();
-
         for (int i = 0; i < fileArray.length; i++) {
             if (fileArray[i].isFile()) {
                   System.out.println( fileArray[i].getName());

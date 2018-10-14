@@ -29,6 +29,12 @@ public class BaseDaoImpl implements BaseDao {
     	jdbcTemplate.update("update test2 set n2='bb's where n1='0'");
     	return true;
     }
+    
+    @Override
+    @Transactional
+    public List findUser(String userName,String passWd){
+    	return jdbcTemplate.queryForList("select * from user where user_name='"+userName+"' and passwd='"+passWd+"'") ;
+    }
     /*@Resource
     protected SQLPageHandle sQLPageHandle;
 
