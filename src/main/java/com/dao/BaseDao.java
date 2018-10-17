@@ -10,5 +10,8 @@ public interface BaseDao {
 
 	List findUser(String userName, String passWd);
 
+	boolean updateGoldReduceAndInsertSpendHistory(String userId,
+			String userName, String fileName, String totalGold);
+
 
 }

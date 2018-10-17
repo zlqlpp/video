@@ -13,8 +13,8 @@
     margin-left: 20%;
     font-size: 40;
 ">
- 
-<form role="form" action="login" >
+ <h3>${err }</h3>
+<form role="form" action="login" method="post">
 	 	账号<input type="text"   id="userName" name="userName"   style="
     padding-left: 1px;
     padding-right: 1px;

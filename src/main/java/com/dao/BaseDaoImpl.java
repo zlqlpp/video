@@ -35,6 +35,23 @@ public class BaseDaoImpl implements BaseDao {
     public List findUser(String userName,String passWd){
     	return jdbcTemplate.queryForList("select * from user where user_name='"+userName+"' and passwd='"+passWd+"'") ;
     }
+    @Override
+    @Transactional
+    public boolean updateGoldReduceAndInsertSpendHistory(String userId,String userName,String fileName,String totalGold){
+    	int i = 0;
+    	int tmp_total_gold = Integer.parseInt(totalGold)-5;
+    	i = jdbcTemplate.update("INSERT INTO spendHistory "
+    			+ "( user_id, user_name, spend_or_recharge, gold, video_Name,   total_gold) "
+    			+ "VALUES ( "+userId+", '"+userName+"', '0', 5, '"+fileName+"',  "+tmp_total_gold+")");
+    	if(i==0){
+    		return false;
+    	}
+    	i = jdbcTemplate.update("update user set total_gold=total_gold-5 where id="+userId);
+    	if(i==0){
+    		return false;
+    	}
+		return true;
+    }
     /*@Resource
     protected SQLPageHandle sQLPageHandle;
 

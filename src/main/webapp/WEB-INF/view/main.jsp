@@ -25,7 +25,7 @@
 		function video(v){
 			var f = $(v).attr('value');
 			if(''!=$('#u').val()){
-				if(confirm("当前总金币100，此次观看将使用2金币")){
+				if(confirm("此次观看将使用5金币")){
 					 　　$('#video').val(f);
 						$('#sf').submit();
 					}
@@ -40,19 +40,20 @@
 <body>
 <form id="sf" action="goVideo" method="post">
 <input id="video" name="video" type="hidden" ></input>
+<input id="u" type="hidden" value="${user['user_name'] }"/>
 </form>
 
 <div>
 <form role="form" class="t">
   <div class="form-group" style="margin-right: 10%;">
-    <label for="name">用户：${userName }</label>
-    <label for="name">金币:${gold }</label> 
-    <input id="u" type="hidden" value="${userName }"/>
+    <label id="userName">用户：${user['user_name'] }</label>
+    <label id="gold">金币:${user['total_gold'] }</label> 
+    
   </div>
  </form>
 </div>
 <hr>
-			<c:forEach items="${files}" var="f" varStatus="id">
+			<c:forEach items="${fileShortNameList}" var="f" varStatus="id">
 				
 					<div class="vn"><a onclick="video(this);" value="${f}">${f}</a> </div>
 				
