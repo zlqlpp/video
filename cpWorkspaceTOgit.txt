@@ -5,3 +5,12 @@ cp -r  /cygdrive/d/eclipse_workspace/video/src/resources/*  /cygdrive/d/github/v
  
 cp -r  /cygdrive/d/eclipse_workspace/video/WebContent/*  /cygdrive/d/github/video/src/main/webapp/
 
+
+
+
+----------------------
+查询观看历史
+新增用户
+充值金币 
+金币不足提示
+
