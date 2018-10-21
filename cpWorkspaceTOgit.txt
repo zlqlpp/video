@@ -13,4 +13,5 @@ cp -r  /cygdrive/d/eclipse_workspace/video/WebContent/*  /cygdrive/d/github/vide
 新增用户
 充值金币 
 金币不足提示
+tomcat本地资源路径
 

@@ -69,7 +69,7 @@ public class vedioController {
     			session.setAttribute("user", map);
     			return "main";
     		}else{
-    			model.addAttribute("err", "帐号错误，请联系QQ111111");
+    			model.addAttribute("err", "帐号错误，请联系VX:salinahk");
     			return "login";
     		}
     	}
@@ -86,7 +86,7 @@ public class vedioController {
     	}else{
     		boolean b = bd.updateGoldReduceAndInsertSpendHistory(user.get("id").toString(),user.get("user_name").toString(),query_video,user.get("total_gold").toString());
     		if(b){
-    			int tmp_total_gold = Integer.parseInt(user.get("total_gold").toString())-5;
+    			int tmp_total_gold = Integer.parseInt(user.get("total_gold").toString())-1;
     			user.put("total_gold", tmp_total_gold);
     			session.setAttribute("user", user);
     			Map map = (Map) session.getAttribute("fileFulllNameMap");

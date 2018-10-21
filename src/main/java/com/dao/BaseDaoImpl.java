@@ -42,16 +42,27 @@ public class BaseDaoImpl implements BaseDao {
     	int tmp_total_gold = Integer.parseInt(totalGold)-5;
     	i = jdbcTemplate.update("INSERT INTO spendHistory "
     			+ "( user_id, user_name, spend_or_recharge, gold, video_Name,   total_gold) "
-    			+ "VALUES ( "+userId+", '"+userName+"', '0', 5, '"+fileName+"',  "+tmp_total_gold+")");
+    			+ "VALUES ( "+userId+", '"+userName+"', '0', 1, '"+fileName+"',  "+tmp_total_gold+")");
     	if(i==0){
     		return false;
     	}
-    	i = jdbcTemplate.update("update user set total_gold=total_gold-5 where id="+userId);
+    	i = jdbcTemplate.update("update user set total_gold=total_gold-1 where id="+userId);
     	if(i==0){
     		return false;
     	}
 		return true;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*@Resource
     protected SQLPageHandle sQLPageHandle;
 

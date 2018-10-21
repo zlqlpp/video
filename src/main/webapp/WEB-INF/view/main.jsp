@@ -25,7 +25,11 @@
 		function video(v){
 			var f = $(v).attr('value');
 			if(''!=$('#u').val()){
-				if(confirm("此次观看将使用5金币")){
+				if(0==$('#g').val()){
+					alert("请加VX:salinahk 进行充值");
+					return;
+				}
+				if(confirm("此次观看将使用1金币")){
 					 　　$('#video').val(f);
 						$('#sf').submit();
 					}
@@ -41,6 +45,7 @@
 <form id="sf" action="goVideo" method="post">
 <input id="video" name="video" type="hidden" ></input>
 <input id="u" type="hidden" value="${user['user_name'] }"/>
+<input id="g" type="hidden" value="${user['total_gold'] }"/>
 </form>
 
 <div>
