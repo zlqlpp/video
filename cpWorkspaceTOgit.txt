@@ -13,7 +13,8 @@ cp -r  /cygdrive/d/eclipse_workspace/video/WebContent/*  /cygdrive/d/github/vide
 新增用户
 充值金币 
 金币不足提示                 ok
-tomcat本地资源路径			 试了几种context的，不好使，软链接不好用。。只能在根目录考备
+tomcat本地资源路径			 试了几种context的，不好使，软链接不好用。。只能在根目录考备    ------再研究一下
 历史表增加 访问IP 入库时间
+首页读取文件列表的问题
 
 
