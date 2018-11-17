@@ -118,7 +118,7 @@ public class vedioController {
 
     	File file = new File(videoPath);
         File[] fileNamesArray = file.listFiles();
-        
+        if(null == fileNamesArray){return;}
         List<String> fileShortNameList = new ArrayList<String>();
         Map<String,String>  fileFulllNameMap  = new HashMap<String,String>();
         for (int i = 0; i < fileNamesArray.length; i++) {
