@@ -117,7 +117,7 @@ public class vedioController {
 
     private void getVideoList(HttpSession session){
     	 
-    	String path3 = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"resources/config.properties"; 
+    	String path3 = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"config.properties"; 
         
         Properties prop = new Properties();
         //读取资源文件
@@ -128,7 +128,7 @@ public class vedioController {
 		}
         
         String videoPath = prop.getProperty("videoPath");
-
+        
     	File file = new File(videoPath);
         File[] fileNamesArray = file.listFiles();
         if(null == fileNamesArray){return;}
