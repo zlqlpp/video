@@ -24,13 +24,14 @@
 	 
 		function video(v){
 			var f = $(v).attr('value');
+			alert(f);
+			$('#video').val(f);
 			if(''!=$('#u').val()){
 				if(0==$('#g').val()){
 					alert("请加VX:salinahk 进行充值");
 					return;
 				}
 				if(confirm("此次观看将使用1金币")){
-					 　　$('#video').val(f);
 						$('#sf').submit();
 					}
 			}else{
