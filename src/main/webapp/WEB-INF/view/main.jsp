@@ -51,6 +51,7 @@
 <div>
 <form role="form" class="t">
   <div class="form-group" style="margin-right: 10%;">
+    <a href="frash">刷新列表</a>
     <label id="userName">用户：${user['user_name'] }</label>
     <label id="gold">金币:${user['total_gold'] }</label> 
     

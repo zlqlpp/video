@@ -27,6 +27,7 @@
     margin-top: 10px;
     border-top-width: 2px;
 "  ><br/>
+<input type="hidden" name="video" value="${video }">
 		<button type="submit"  style="
     margin-top: 20px;
 ">登录</button>

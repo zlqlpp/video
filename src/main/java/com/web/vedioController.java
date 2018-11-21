@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.BaseDao;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -49,36 +50,47 @@ public class vedioController {
         } 
         return  "main";
     }
+    @RequestMapping("/frash")
+    public String frash(ModelMap model,HttpSession session){
+        getVideoList(session);
+        return  "main";
+    }
     @RequestMapping("/login")
-    public String login(ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession session){
+    public String login(ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession session) throws Exception{
     	
     	String query_userName = request.getParameter("userName");
     	String query_passWord = request.getParameter("passWord");
+    	String query_video    = request.getParameter("video");
+    	model.addAttribute("video", query_video);
+    	
     	if(StringUtils.isBlank(query_userName)||StringUtils.isBlank(query_passWord)){
+    		
     		return "login";
     	}
     	List ret_list = null;
     	Map map = (Map) session.getAttribute("user");
     	if(null!=map&&query_userName.equals(map.get("userName"))){
-    		return "main";
+    		request.getRequestDispatcher("/goVideo").forward(request, response);
     	}else{
     		
     		ret_list = bd.findUser(query_userName, query_passWord);
     		if(null!=ret_list&&ret_list.size()>0){
     			map = (Map) ret_list.get(0);
     			session.setAttribute("user", map);
-    			return "main";
+    			request.getRequestDispatcher("/goVideo").forward(request, response);
     		}else{
     			model.addAttribute("err", "帐号错误，请联系VX:salinahk");
     			return "login";
     		}
     	}
+		return null;
     }
     
     @RequestMapping("/goVideo")
     public String goVideo(ModelMap model,HttpServletRequest request,HttpSession session){
     	
     	String query_video = request.getParameter("video");
+    	model.addAttribute("video", query_video);
     	
     	Map user  = (Map) session.getAttribute("user");
     	if(null == user||"".equals(user)){
@@ -90,7 +102,8 @@ public class vedioController {
     			user.put("total_gold", tmp_total_gold);
     			session.setAttribute("user", user);
     			Map map = (Map) session.getAttribute("fileFulllNameMap");
-        		model.addAttribute("video", map.get(query_video));
+    	    	model.addAttribute("video", map.get(query_video));
+    	    	
                 return  "video";
     		}
     		model.addAttribute("err","支付失败，联系qq11111");
