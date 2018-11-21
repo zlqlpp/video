@@ -36,6 +36,7 @@ public class vedioController {
     @Autowired
     BaseDao bd;
     
+    private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger("vedioController");
 /*    @RequestMapping("/test")
     public String test(ModelMap model,HttpSession session){
     	bd.insertAndSave();
@@ -119,6 +120,7 @@ public class vedioController {
     	 
     	String path3 = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"config.properties"; 
         System.out.println(path3);
+        logger.info(path3);
         Properties prop = new Properties();
         //读取资源文件
         try {
