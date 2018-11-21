@@ -118,7 +118,7 @@ public class vedioController {
     private void getVideoList(HttpSession session){
     	 
     	String path3 = Thread.currentThread().getContextClassLoader().getResource("").getPath()+"config.properties"; 
-        
+        System.out.println(path3);
         Properties prop = new Properties();
         //读取资源文件
         try {
