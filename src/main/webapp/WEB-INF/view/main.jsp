@@ -24,7 +24,6 @@
 	 
 		function video(v){
 			var f = $(v).attr('value');
-			alert(f);
 			$('#video').val(f);
 			if(''!=$('#u').val()){
 				if(0==$('#g').val()){
