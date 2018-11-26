@@ -29,8 +29,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by Administrator on 2016-03-27.
  */
-@Controller
-
+@Controller("/nologin")
 public class vedioNoLogInController {
 
     @Autowired

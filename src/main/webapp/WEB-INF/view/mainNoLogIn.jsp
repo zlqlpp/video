@@ -31,7 +31,7 @@
 	</script>
 </head>
 <body>
-<form id="sf" action="goVideoNoLogIn" method="post">
+<form id="sf" action="nologin/goVideoNoLogIn" method="post">
 <input id="video" name="video" type="hidden" ></input>
 <input id="u" type="hidden" value="${user['user_name'] }"/>
 <input id="g" type="hidden" value="${user['total_gold'] }"/>
