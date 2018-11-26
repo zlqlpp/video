@@ -29,7 +29,8 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by Administrator on 2016-03-27.
  */
-@Controller("/v1")
+@Controller
+@RequestMapping("/v1")
 public class vedioController {
 
     @Autowired
