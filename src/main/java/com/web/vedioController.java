@@ -29,8 +29,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by Administrator on 2016-03-27.
  */
-@Controller
-
+@Controller("/v1")
 public class vedioController {
 
     @Autowired
@@ -78,7 +77,7 @@ public class vedioController {
     		if(null!=ret_list&&ret_list.size()>0){
     			map = (Map) ret_list.get(0);
     			session.setAttribute("user", map);
-    			request.getRequestDispatcher("/goVideo").forward(request, response);
+    			request.getRequestDispatcher("/v1/goVideo").forward(request, response);
     		}else{
     			model.addAttribute("err", "帐号错误，请联系VX:salinahk");
     			return "login";
