@@ -52,6 +52,12 @@ public class vedioNoLogInController {
         return  "mainNoLogIn";
     }
     
+    @RequestMapping("/frash")
+    public String frash(ModelMap model,HttpSession session){
+        getVideoList(session);
+        return  "main";
+    }
+
     @RequestMapping("/goVideo")
     public String goVideo(ModelMap model,HttpServletRequest request,HttpSession session){
     	
