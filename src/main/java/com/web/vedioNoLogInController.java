@@ -65,7 +65,7 @@ public class vedioNoLogInController {
     	Map map = (Map) session.getAttribute("fileFulllNameMap");
     	model.addAttribute("video", map.get(query_video));
     	
-        return  "video";
+        return  "videoNoLogIn";
         
     }
 
