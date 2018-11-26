@@ -58,7 +58,7 @@ public class vedioNoLogInController {
         return  "main";
     }
 
-    @RequestMapping("/goVideo")
+    @RequestMapping("/goVideoNoLogIn")
     public String goVideo(ModelMap model,HttpServletRequest request,HttpSession session){
     	
     	String query_video = request.getParameter("video");
